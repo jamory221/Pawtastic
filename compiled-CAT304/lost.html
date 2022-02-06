@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Report Lost Pet</title>
+  <link rel="icon" href="images/favicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	 <!-- Mobile Specific Metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	
+
+	<!-- Main Style Css -->
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+  
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="lost.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="mapv2.js"></script>
+
+    <!--Dependent dropdown list for type and breed-->
+<script>
+
+    var subjectObject = {
+    
+    Cat: ["Domestic Shorthair", "American Shorthair", "Domestic Longhair", "Maine Coon","Siamese","Russian Blue","Ragdoll","Bengal","Bombay","Persian"],
+    Dog: ["Labrador Retrievers", "Golden Retrievers", "German Shepherd Dogs", "Beagles","Dachshunds","Yorkshire Terriers","Boxers","Poodles","Chihuahuas","Shih Tzy"],
+    Rabbit: ["Hollands Lop", "Mini Lop", "Dutch","Lionhead","French Lop","Californian","Dwarf Papillon","Netherland Dwarf","Mini Rex","Flemish Giant"]    
+
+
+    }
+    window.onload = function() {
+    var typeSel = document.getElementById("type");
+    var BreedSel = document.getElementById("breed");
+
+    for (var type in subjectObject) {
+    typeSel.options[typeSel.options.length] = new Option(type,type);
+    }
+    typeSel.onchange = function() {
+
+        BreedSel.length = 1;
+    //display correct values
+    if (this.selectedIndex < 1) return; // done  
+                var ft = subjectObject[this.value];
+
+    for (var breed in subjectObject[this.value]) {
+        BreedSel.options[BreedSel.options.length] = new Option(ft[breed], breed);
+    }
+    }
+    BreedSel.onchange;
+
+    }
+</script>
+    <!--Dependent dropdown list for type and breed-->
+
+</head>
+<header>
+        
+    <div id="menu" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"> <i class="fas fa-paw"></i> PAWTASTIC</a>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="displaylost.php">Lost Pet</a>
+        <a href="lostnearby.php">Search Nearby</a>
+    </nav>
+
+    <div class="icons">
+        <a href="#" class="fas fa-user"></a>
+    </div>
+</header>
+<body >
+  
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                <div class="d-table-cell align-middle"style="padding-bottom: 70px";>
+
+                    <div class="text-center mt-4">
+                        <h1 class="h2">Lost a pet ?</h1>
+                        <p class="lead">
+                            Find help to reunited with your pet
+                        </p>
+                    </div>
+
+                    <div class="card" style="width:700px";>
+                        <div class="card-body" >
+                            <div class="m-sm-4">
+                                    <form  action="lost.php" method="POST" enctype="multipart/form-data" id="submit"  >
+                                    <div class="form-group">
+                                        <label>Contact Name</label>
+                                        <input class="form-control form-control-lg" type="text" name="names" placeholder="Contact Name" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Contact Number</label>
+                                        <input class="form-control form-control-lg" type="tel" inputmode ="numeric" name="phone" placeholder="Contact Number" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Pet Name</label>
+                                        <input class="form-control form-control-lg" type="text" name="petname" placeholder="Pet name (if known)" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Pet Type</label>
+                                        <select class="form-control" id="type" name="type" size="1" required>
+                                            <option value="type" selected="selected">Select pet type</option>
+                                        </select>
+                                      </div>
+
+                                    <div class="form-group">
+                                        <label>Pet Breed</label>
+                                        <select class="form-control" id="breed" name="breed" size="1"required > 
+                                        <option value="breed" selected="selected">Select pet breed</option>
+                                    </select>
+                                    </div>  
+
+                                    <div class="form-group">
+                                        <label class>Pet Gender</label>
+                                        <select class="form-control" name="gender">
+                                          <option selected> Pet Gender</option>       
+                                          <option value="Male">Male</option>
+                                          <option value="Female">Female</option>
+                                        </select>
+                                      </div>
+
+                                    <div class="form-group">
+                                        <label>Date Lost</label>
+                                        <input class="form-control form-control-lg" type="date" name="date" placeholder="Date Lost" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <input class="form-control form-control-lg" type="text" name="description" placeholder="Description" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class>State</label>
+                                        <select class="form-control" name="state">
+                                            <option selected> Select State</option>       
+                                            <option value="Johor">Johor</option>
+                                            <option value="Kedah">Kedah</option>
+                                            <option value="Kelantan">Kelantan</option>
+                                            <option value="Kuala Lumpur">Kuala Lumpur</option>
+                                            <option value="Malacca">Malacca</option>
+                                            <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                            <option value="Perlis">Perlis</option>
+                                            <option value="Penang">Penang</option>
+                                            <option value="Pahang">Pahang</option>
+                                            <option value="Perak">Perak</option>
+                                            <option value="Sabah">Sabah</option>
+                                            <option value="Sarawak">Sarawak</option>
+                                            <option value="Selangor">Selangor</option>
+                                            <option value="Terengganu">Terengganu</option>
+                                        </select>
+                                      </div>
+
+                                      <div class="form-group">
+                                        <label>Location</label>
+                                        <input class="form-control form-control-lg" type="text" id="pac-input" name="location" placeholder="Full Address" required>
+                                    </div>
+                                  
+                                  <div id="map"></div>
+                                  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+                                        <script
+                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDO6gNaI7GkOqQJg2Mh0-Sb3DAyXxF6HYc&callback=initAutocomplete&libraries=places&v=weekly"
+                                        async
+                                    ></script>
+                                    
+                                    
+                                    <br>
+                                    <label >Upload image<input type="file" accept="image/*" name="petimage" required /></label><br>
+
+                                    <div class="text-center mt-3">
+                                        <input type="submit" class="btn btn-lg " name="submit" id="submit" value="Report Lost Pet & Confirm Location" style="background-color:rgb(173, 8, 8)";>
+
+                                        <!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

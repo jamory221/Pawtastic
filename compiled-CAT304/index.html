@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content ="width=device-width, initial-scale=1.0">
+        <title>PAWTASTIC</title>
+        <link rel="icon" href="images/favicon.png">
+        
+        <!--for font-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        
+        <!--for css file-->
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+<body>
+    <!--header starts here-->
+    <header>
+        
+        <div id="menu" class="fas fa-bars"></div>
+
+        <a href="#" class="logo"> <i class="fas fa-paw"></i> PAWTASTIC</a>
+        <nav class="navbar">
+            <a href="#about">About</a>
+            <a href="#adoption">Adoption</a>
+            <a href="displaylost.php">Lost</a>
+            <a href="displayfound.php">Found</a>
+            <a href="#contact">Contact</a>
+            <a href="map.html">Map</a>
+        </nav>
+
+        <div class="icons">
+            <a href="#" class="fas fa-user"></a>
+        </div>
+    </header>
+    <!--header ends here-->
+
+    <!--about section start here-->
+    <section class="about" id="about">
+
+        <div class="content">
+            <span>Platform for pet adoption & finding your lost pet</span>
+            <h3>welcome to PAWTASTIC! </h3>
+            <a href="#" class="btn">meow & woof</a>
+        </div>
+    </section>
+    <!--about section ends here-->
+
+    <!--adoption section start here-->
+    <section class="adoption" id="adoption">
+
+        <div class="container">
+
+            <h3 class="title"> adoption </h3> 
+             
+            <div class="pets-container">
+
+                <div class = "pet" data-name="p-1">
+                    <img src="images/1.jpg" alt="">
+                    <h3> Looney </h3>
+                    <div class="location">Kangar, Perlis</div>
+                </div>
+
+                <div class = "pet" data-name="p-2">
+                    <img src="images/2.jpg" alt="">
+                    <h3> Snowball </h3>
+                    <div class="location">Alor Setar, Kedah</div>
+                </div>
+                
+                <div class = "pet" data-name="p-3">
+                    <img src="images/3.jpg" alt="">
+                    <h3> mimi </h3>
+                    <div class="location">Arau, Perlis</div>
+                </div>
+            </div> 
+        </div>
+
+        <div class="pet-preview">
+            
+            <div class="preview" data-target="p-1">
+                <i class="fas fa-times"> </i>
+                <img src="images/1.jpg" alt="">
+                <h3>Female</h3>
+           
+            <p> black orange kitten </p>
+            <div class="love"> cute <br> can hold own bottle </div>
+            <div class="buttons">
+                <a href="#" class="adopt">adopt now</a>
+            </div>
+            </div>
+
+            <div class="preview" data-target="p-2">
+                <i class="fas fa-times"> </i>
+                <img src="images/2.jpg" alt="">
+                <h3>Male</h3>
+            
+            <p> White Golden Retriever </p>
+            <div class="love"> can shake hand <br> can fetch ball <br> can bark on command </div>
+            <div class="buttons">
+                <a href="#" class="adopt">adopt now</a>
+            </div>
+            </div>
+            
+            <div class="preview" data-target="p-3">
+                <i class="fas fa-times"> </i>
+                <img src="images/3.jpg" alt="">
+                <h3>Female</h3>
+            
+            <p> brown </p>
+            <div class="love"> can high five <br> can spin on cue </div>
+            <div class="buttons">
+                <a href="#" class="adopt">adopt now</a>
+            </div>
+            </div>
+        </div>
+
+    </section>
+    <!--adoption section end here-->
+
+
+
+<!--custom js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--js link-->
+<script src="main.js"></script>
+</body>
+</html>
+
